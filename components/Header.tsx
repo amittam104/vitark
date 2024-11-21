@@ -7,10 +7,10 @@ import { Button } from "./ui/button";
 
 function Header() {
   return (
-    <header className="py-2 px-4 flex items-center justify-between gap-8 lg:justify-start h-14 max-w-[90rem] mx-auto">
+    <header className="py-2 flex items-center justify-between gap-8 lg:justify-start h-14 max-w-[85rem] mx-auto">
       <div className="flex items-center gap-2">
-        <Diamond size={20} weight="light" />
-        <p className="font-light">Vitark</p>
+        <Diamond size={20} />
+        <p className="">Vitark</p>
       </div>
 
       {/* Desktop and Laptop navigation */}
@@ -29,7 +29,7 @@ function Header() {
                 <GithubLogo size={20} weight="light" />
               </Button>
             </Link>
-            <Link href="https://X.com/amittambulkar" target="_blank">
+            <Link href="https://X.com/attambulkar" target="_blank">
               <Button variant="ghost" size="icon">
                 <XLogo size={20} weight="light" />
               </Button>
