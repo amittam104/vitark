@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 
 function Header() {
   return (
-    <header className="py-2 flex items-center justify-between gap-8 lg:justify-start h-14 max-w-[85rem] mx-auto">
+    <header className="py-2 flex items-center justify-between gap-8 lg:justify-start h-14 max-w-[90rem] mx-auto">
       <div className="flex items-center gap-2">
         <Diamond size={20} />
         <p className="">Vitark</p>

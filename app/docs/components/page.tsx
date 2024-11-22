@@ -65,8 +65,7 @@ function Page() {
                   key={day.id}
                   className={`px-8 py-6 0 flex items-center justify-center ${
                     day.status === "yes" ? "bg-indigo-600" : "bg-slate-300"
-                  }`}
-                >
+                  }`}>
                   &nbsp;
                 </li>
               );
@@ -76,8 +75,7 @@ function Page() {
         <div>
           <button
             onClick={updateWeekTracker}
-            className="px-4 py-2 bg-slate-900 rounded-lg shadow-md text-slate-50"
-          >
+            className="px-4 py-2 bg-slate-900 rounded-lg shadow-md text-slate-50">
             Done
           </button>
         </div>

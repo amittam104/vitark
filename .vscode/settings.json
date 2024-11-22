@@ -1,9 +1,9 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, Courier New, monospace",
-    "IDX.aI.enableInlineCompletion": false,
-    "IDX.aI.enableCodebaseIndexing": true,
-    "prettier.bracketSameLine": true
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "editor.fontFamily": "JetBrains Mono, Courier New, monospace",
+  "IDX.aI.enableInlineCompletion": false,
+  "IDX.aI.enableCodebaseIndexing": true,
+  "prettier.bracketSameLine": true
 }
