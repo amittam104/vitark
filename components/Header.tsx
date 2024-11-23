@@ -7,19 +7,25 @@ import { Button } from "./ui/button";
 
 function Header() {
   return (
-    <header className="py-2 flex items-center justify-between gap-8 lg:justify-start h-14 max-w-[90rem] mx-auto">
-      <div className="flex items-center gap-2">
+    <header className="py-2 flex items-center justify-between gap-8 lg:justify-start h-14 max-w-[88rem] mx-auto">
+      <Link href="/" className="flex items-center gap-2">
         <Diamond size={20} />
         <p className="">Vitark</p>
-      </div>
+      </Link>
 
       {/* Desktop and Laptop navigation */}
       <div className="hidden lg:flex-1 lg:flex lg:items-center lg:justify-between">
         <nav>
           <ul className="flex items-center gap-4 text-sm text-neutral-500">
-            <li>Docs</li>
-            <li>Components</li>
-            <li>Feedback</li>
+            <li>
+              <Link href="/docs">Docs</Link>
+            </li>
+            <li>
+              <Link href="/docs/components">Components</Link>
+            </li>
+            <li>
+              <Link href="/docs">Feedback</Link>
+            </li>
           </ul>
         </nav>
         <div className="flex items-center gap-4">

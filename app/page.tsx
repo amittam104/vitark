@@ -30,7 +30,7 @@ export default function Home() {
   // const randomNo = Math.floor(Math.random() * 4 + 1);
 
   return (
-    <div className="w-full  flex flex-col items-center pb-20 pt-20 gap-16 max-w-[90rem] mx-auto">
+    <div className="w-full  flex flex-col items-center pb-20 pt-20 gap-16 max-w-[88rem] mx-auto">
       <h1 className="text-5xl font-light max-w-2xl text-center leading-snug text-slate-900 tracking-tight">
         Library for logical components Not just UI components
       </h1>
@@ -157,7 +157,9 @@ export default function Home() {
           </div>
         </div>
         <div className="bg-white border text-sm border-slate-200 rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 col-start-10 col-span-7  row-start-6 row-end-10">
-          <p className="mb-4">Provide your feedback or request new comments.</p>
+          <p className="mb-4">
+            Provide your feedback or request new components.
+          </p>
           <Button variant="outline">Your Feedback</Button>
         </div>
       </div>
