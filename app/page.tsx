@@ -30,7 +30,7 @@ export default function Home() {
   // const randomNo = Math.floor(Math.random() * 4 + 1);
 
   return (
-    <div className="w-full  flex flex-col items-center pb-20 pt-20 gap-16 max-w-[88rem] mx-auto">
+    <div className="w-full  flex flex-col items-center pt-20 gap-12 max-w-[88rem] mx-auto">
       <h1 className="text-5xl font-light max-w-2xl text-center leading-snug text-slate-900 tracking-tight">
         Library for logical components Not just UI components
       </h1>
@@ -56,7 +56,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="bg-gradient-to-br from-slate-50/20 to-slate-100/60 border relative border-slate-200 overflow-hidden rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 col-start-5 col-end-10 row-start-1 row-end-7">
+        <div className="bg-gradient-to-br from-slate-50/20 to-slate-100/60 border relative border-slate-200 overflow-hidden rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 col-start-5 col-end-10 row-start-1 row-end-6">
           <div className="text-sm space-y-4 mb-7 z-10">
             <p>Using this library is as simple as it gets</p>
             <ul className="space-y-2">
@@ -100,7 +100,7 @@ export default function Home() {
             </span>
           </Button>
         </div>
-        <div className="bg-white border border-slate-200 rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 row-start-7 row-end-13 col-start-5 col-end-10">
+        <div className="bg-white border border-slate-200 rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 row-start-6 row-end-12 col-start-5 col-end-10">
           <p className="text-sm mb-4">Weekly tracker</p>
           <div className="flex items-center justify-between gap-auto w-full mb-8">
             {weeklyTracker.map((day) => {
