@@ -1,18 +1,18 @@
-import * as React from "react";
 import {
   Sidebar,
   SidebarContent,
-  SidebarHeader,
-  SidebarProvider,
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
-  SidebarMenuItem,
   SidebarMenuButton,
-  SidebarSeparator,
+  SidebarMenuItem,
+  SidebarProvider,
 } from "@/components/ui/sidebar";
-import { Calendar, GitGraph, Filter, SortDesc, Download } from "lucide-react";
+import { Calendar, Filter, LayoutGrid, SortDesc } from "lucide-react";
+import Link from "next/link";
+import * as React from "react";
 
 function layout({
   children,
@@ -24,17 +24,11 @@ function layout({
       <div>
         <div className="flex justify-between w-screen overflow-hidden">
           {/* Left Sidebar */}
-          <Sidebar
-            collapsible="none"
-            className="w-64 border mx-4 bg-white rounded-lg">
-            <SidebarHeader></SidebarHeader>
-            <SidebarContent className="ml-4">
+          <Sidebar collapsible="none" className="w-64  mx-4 bg-white ">
+            <SidebarContent className="mt-4 gap-0">
               <SidebarGroup>
                 <SidebarGroupLabel className="text-sm text-neutral-800 font-semibold">
-                  Introduction
-                </SidebarGroupLabel>
-                <SidebarGroupLabel className="text-sm text-neutral-800 font-semibold">
-                  Installation
+                  <Link href="/docs">Getting Started</Link>
                 </SidebarGroupLabel>
                 <SidebarGroupContent>
                   <SidebarMenu>
@@ -42,13 +36,28 @@ function layout({
                       <SidebarMenuButton asChild>
                         <a href="/docs">
                           {/* <Download className="mr-2 h-4 w-4" /> */}
+                          <span>Introduction</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  </SidebarMenu>
+                </SidebarGroupContent>
+                <SidebarGroupLabel className="text-sm text-neutral-800 font-semibold">
+                  Installation
+                </SidebarGroupLabel>
+                <SidebarGroupContent>
+                  <SidebarMenu>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton asChild>
+                        <a href="/docs/installation/next-js">
+                          {/* <Download className="mr-2 h-4 w-4" /> */}
                           <span>Setup Next.js</span>
                         </a>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild>
-                        <a href="/docs">
+                        <a href="/docs/installation/vite">
                           {/* <Download className="mr-2 h-4 w-4" /> */}
                           <span>Setup Vite</span>
                         </a>
@@ -56,7 +65,7 @@ function layout({
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild>
-                        <a href="/docs">
+                        <a href="/docs/installation/tailwind-css">
                           {/* <Download className="mr-2 h-4 w-4" /> */}
                           <span>Install Tailwind CSS</span>
                         </a>
@@ -64,7 +73,7 @@ function layout({
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild>
-                        <a href="/docs">
+                        <a href="/docs/installation/shadcn">
                           {/* <Download className="mr-2 h-4 w-4" /> */}
                           <span>Install Shadcn</span>
                         </a>
@@ -73,13 +82,16 @@ function layout({
                   </SidebarMenu>
                 </SidebarGroupContent>
               </SidebarGroup>
-              <SidebarSeparator />
+              {/* <SidebarSeparator /> */}
               <SidebarGroup>
+                <SidebarGroupLabel className="text-sm text-neutral-800 font-semibold">
+                  Components
+                </SidebarGroupLabel>
                 <SidebarGroupContent>
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild>
-                        <a href="#week-tracker">
+                        <a href="/docs/components/weekly-tracker">
                           <Calendar className="mr-2 h-4 w-4" />
                           <span>Week Tracker</span>
                         </a>
@@ -87,15 +99,15 @@ function layout({
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild>
-                        <a href="#github-graph">
-                          <GitGraph className="mr-2 h-4 w-4" />
+                        <a href="/docs/components/contribution-graph">
+                          <LayoutGrid className="mr-2 h-4 w-4" />
                           <span>Github Graph</span>
                         </a>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild>
-                        <a href="#filter">
+                        <a href="/docs/components/filter">
                           <Filter className="mr-2 h-4 w-4" />
                           <span>Filter</span>
                         </a>
@@ -103,7 +115,7 @@ function layout({
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild>
-                        <a href="#sort">
+                        <a href="/docs/components/sort">
                           <SortDesc className="mr-2 h-4 w-4" />
                           <span>Sort</span>
                         </a>
@@ -118,7 +130,10 @@ function layout({
           <main className="flex-1 overflow-auto p-4">{children}</main>
 
           {/* Right Sidebar */}
-          <Sidebar collapsible="none" className="w-64 border mx-4" side="right">
+          <Sidebar
+            collapsible="none"
+            className="w-64 mx-4 bg-white"
+            side="right">
             <SidebarHeader className="h-14">
               <div className="p-4 text-sm font-medium">On this page</div>
             </SidebarHeader>
