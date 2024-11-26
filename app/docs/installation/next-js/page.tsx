@@ -1,5 +1,9 @@
 function Page() {
-  return <div>Setup next js project</div>;
+  return (
+    <div>
+      <h1>Setup next js project</h1>
+    </div>
+  );
 }
 
 export default Page;

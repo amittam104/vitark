@@ -21,8 +21,8 @@ function layout({
 }>) {
   return (
     <SidebarProvider>
-      <div>
-        <div className="flex justify-between w-screen overflow-hidden">
+      <div className="w-full">
+        <div className="flex justify-between w-full overflow-hidden">
           {/* Left Sidebar */}
           <Sidebar collapsible="none" className="w-64  mx-4 bg-white ">
             <SidebarContent className="mt-4 gap-0">
