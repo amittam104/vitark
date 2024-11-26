@@ -110,7 +110,7 @@ export default function Home() {
                     className={`flex items-center border-2 justify-center p-3 rounded-sm ${
                       day.status === "yes"
                         ? " border-violet-600 bg-violet-100"
-                        : "border-slate-300 bg-slate-100"
+                        : "border-slate-400 bg-slate-100"
                     }`}>
                     <Diamond
                       size={16}

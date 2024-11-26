@@ -21,7 +21,7 @@ function Header() {
               <Link href="/docs">Docs</Link>
             </li>
             <li>
-              <Link href="/docs/components">Components</Link>
+              <Link href="/docs/components/weekly-tracker">Components</Link>
             </li>
             <li>
               <Link href="/docs">Feedback</Link>
@@ -58,9 +58,17 @@ function Header() {
             <div className="flex flex-col items-end gap-8 mt-10">
               <nav>
                 <ul className="flex flex-col items-end gap-4 text-sm text-neutral-500">
-                  <li>Docs</li>
-                  <li>Components</li>
-                  <li>Feedback</li>
+                  <li>
+                    <Link href="/docs">Docs</Link>
+                  </li>
+                  <li>
+                    <Link href="/docs/components/weekly-tracker">
+                      Components
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/docs">Feedback</Link>
+                  </li>
                 </ul>
               </nav>
 

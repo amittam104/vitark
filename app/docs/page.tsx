@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <div>
-      <h1 className="text-xl mb-8 mt-4">Introduction</h1>
+      <h1 className="text-xl text-slate-950 mb-8 mt-4">Introduction</h1>
       <p className="text-slate-700 mb-6 ">
         This is a collection of ready-to-use functional React components
         designed to streamline your development process, built on top of the

@@ -1,5 +1,6 @@
 "use client";
 
+import { Diamond } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useState } from "react";
 
 const initialWeekTracker = [
@@ -63,10 +64,19 @@ function Page() {
               return (
                 <li
                   key={day.id}
-                  className={`px-8 py-6 0 flex items-center justify-center ${
-                    day.status === "yes" ? "bg-indigo-600" : "bg-slate-300"
+                  className={`p-4 0 flex items-center border-[3px] rounded-xl justify-center ${
+                    day.status === "yes"
+                      ? "bg-violet-100 border-violet-600"
+                      : "bg-slate-100 border-slate-400"
                   }`}>
-                  &nbsp;
+                  <Diamond
+                    size={30}
+                    className={`${
+                      day.status === "yes"
+                        ? "text-violet-600"
+                        : "text-slate-400"
+                    }`}
+                  />
                 </li>
               );
             })}
