@@ -19,7 +19,7 @@ function layout({
           {/* Left Sidebar */}
           <LeftSidebar />
 
-          <main className="flex-1 overflow-auto p-4">{children}</main>
+          <main className="flex-1 overflow-hidden p-4">{children}</main>
 
           {/* Right Sidebar */}
           <Sidebar
