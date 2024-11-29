@@ -1,14 +1,9 @@
+export const weeklyTrackerCode = `
 "use client";
 
 import { Diamond } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Clipboard, ClipboardCheck } from "lucide-react";
-import { motion } from "motion/react";
 import { isSameWeek } from "date-fns";
-import { weeklyTrackerCode } from "@/components code/weeklyTracker";
 
 type WeekDay = {
   id: number;
@@ -19,8 +14,6 @@ type WeekDay = {
 };
 
 let initialWeekTracker: WeekDay[];
-
-// function trackCurrentWeek() {}
 
 if (typeof window !== undefined && window.localStorage) {
   initialWeekTracker = [
@@ -54,7 +47,6 @@ if (typeof window !== undefined && window.localStorage) {
 
 function Page() {
   const [weekDayTracker, setWeekDayTracker] = useState(initialWeekTracker);
-  const [hasCopied, setHasCopied] = useState(false);
 
   function updateWeekTracker() {
     const todayDay = new Date().getDay();
@@ -122,43 +114,9 @@ function Page() {
     [weekDayTracker]
   );
 
-  function customPre({ children }: { children: React.ReactNode }) {
-    return (
-      <pre className="overflow-x-scroll rounded-lg  bg-slate-950 text-slate-200 w-full p-4">
-        {children}
-      </pre>
-    );
-  }
-
-  async function handleCodeCopy() {
-    try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
-      setHasCopied(true);
-
-      setTimeout(() => {
-        setHasCopied(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Could not copy the code", error);
-    }
-  }
-
   return (
-    <div className="flex flex-col  items-start justify-center">
-      <div className="space-y-2 mb-8">
-        <h2 className="text-xl font-semibold">Weekly Tracker</h2>
-        <p className="text-slate-600">
-          Simple component to track your weekly progress, use local storage or a
-          database
-        </p>
-      </div>
-      <Tabs defaultValue="preview" className="w-full">
-        <TabsList>
-          <TabsTrigger value="preview">Preview</TabsTrigger>
-          <TabsTrigger value="code">Code</TabsTrigger>
-        </TabsList>
-        <TabsContent value="preview">
-          <div className="border border-slate-200 rounded-lg flex flex-col items-start p-12">
+   
+        <div className="border border-slate-200 rounded-lg flex flex-col items-start p-12">
             <div className="mb-8 w-full">
               <ul className="flex justify-between gap-6 w-full items-center">
                 {weekDayTracker.map((day: WeekDay) => {
@@ -167,18 +125,18 @@ function Page() {
                       className="flex flex-col items-center gap-3"
                       key={day.id}>
                       <li
-                        className={`p-4 0 flex items-center border-[2px] rounded-xl justify-center ${
+                        className={\`p-4 0 flex items-center border-[2px] rounded-xl justify-center \${
                           day.status === "yes"
                             ? "bg-violet-100 border-violet-600"
                             : "bg-slate-100 border-slate-400"
-                        }`}>
+                        }\`}>
                         <Diamond
                           size={30}
-                          className={`${
+                          className={\`\${
                             day.status === "yes"
                               ? "text-violet-600"
                               : "text-slate-400"
-                          }`}
+                          }\`}
                         />
                       </li>
                       <p className="text-xs text-slate-500">{day.dayCode}</p>
@@ -208,39 +166,10 @@ function Page() {
                 Done
               </button>
             </div>
-          </div>
-        </TabsContent>
-        <TabsContent value="code">
-          <div className="rounded-lg relative flex flex-col items-start text-base h-[35rem] ">
-            <SyntaxHighlighter
-              PreTag={customPre}
-              language="typescript"
-              style={nightOwl}>
-              {weeklyTrackerCode}
-            </SyntaxHighlighter>
-            {hasCopied ? (
-              <motion.button
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                // whileTap={{ scale: 0.9, rotate: 3 }}
-                className="absolute top-4 right-5 text-slate-300 rounded-md">
-                <ClipboardCheck size={16} />
-              </motion.button>
-            ) : (
-              <motion.button
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                whileTap={{ scale: 0.4, rotate: 2 }}
-                onClick={handleCodeCopy}
-                className="absolute top-4 right-5 text-slate-300 rounded-md">
-                <Clipboard size={16} />
-              </motion.button>
-            )}
-          </div>
-        </TabsContent>
-      </Tabs>
-    </div>
+        </div>
+
   );
 }
 
 export default Page;
+`;

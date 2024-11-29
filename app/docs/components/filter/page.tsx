@@ -1,5 +1,5 @@
 function Page() {
-  return <div>Filter component</div>;
+  return <div>Sort component</div>;
 }
 
 export default Page;
