@@ -24,7 +24,9 @@ function customPre({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Page() {
+const filterByArray = ["Option 1", "Option 2", "Option 3"];
+
+function Page(data: Record<string, never>[], filterBy: string[]) {
   const [hasCopied, setHasCopied] = useState(false);
 
   async function handleCodeCopy() {
@@ -40,7 +42,7 @@ function Page() {
     }
   }
 
-  function filterFunction(data: Record<string, never>[], filterBy: string[]) {
+  function filterFunction() {
     if (filterBy.length > 0) {
       filterBy.map((filterOption) => {
         data.filter((el) => {
@@ -66,36 +68,24 @@ function Page() {
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
         <TabsContent value="preview">
-          <div className="border border-slate-200 rounded-lg flex flex-col items-center justify-center h-72 p-12">
+          <div className="border border-slate-200 rounded-lg flex flex-col items-center justify-center h-96 p-12">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
-                  <span>Filter</span>
+                  <span>Filter data</span>
                   <Filter />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel>Filter options</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuCheckboxItem
-                // checked={showStatusBar}
-                // onCheckedChange={setShowStatusBar}
-                >
-                  Option 1
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem
-                // checked={showActivityBar}
-                // onCheckedChange={setShowActivityBar}
-                // disabled
-                >
-                  Option 2
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem
-                // checked={showPanel}
-                // onCheckedChange={setShowPanel}
-                >
-                  Option 3
-                </DropdownMenuCheckboxItem>
+                {filterByArray.map((filterOption) => {
+                  return (
+                    <DropdownMenuCheckboxItem>
+                      {filterOption}
+                    </DropdownMenuCheckboxItem>
+                  );
+                })}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
