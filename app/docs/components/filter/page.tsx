@@ -1,9 +1,9 @@
 "use client";
-import { Clipboard, ClipboardCheck, Filter } from "lucide-react";
 
+import { useState } from "react";
+import { Clipboard, ClipboardCheck, Filter } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "motion/react";
-import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {
@@ -40,6 +40,17 @@ function Page() {
     }
   }
 
+  function filterFunction(data: Record<string, never>[], filterBy: string[]) {
+    if (filterBy.length > 0) {
+      filterBy.map((filterOption) => {
+        data.filter((el) => {
+          if (el[filterOption]) return el;
+          return;
+        });
+      });
+    }
+  }
+
   return (
     <div className="flex flex-col  items-start justify-center">
       <div className="space-y-2 mb-8">
@@ -55,7 +66,7 @@ function Page() {
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
         <TabsContent value="preview">
-          <div className="border border-slate-200 rounded-lg flex flex-col items-start p-12">
+          <div className="border border-slate-200 rounded-lg flex flex-col items-center justify-center h-72 p-12">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
