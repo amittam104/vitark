@@ -17,7 +17,6 @@ import {
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -100,7 +99,7 @@ const filterValuesDummyData = ["deleted", "unread", "read"];
 function Page() {
   const [hasCopied, setHasCopied] = useState(false);
   const [FilterData, setFilterData] = useState(filterDummyData);
-  const [filterValues, setFilterValues] = useState(filterValuesDummyData);
+  const [filterValues] = useState(filterValuesDummyData);
   const [selectedOption, setSelectedOption] = useState("");
 
   async function handleCodeCopy() {
