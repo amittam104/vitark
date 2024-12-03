@@ -8,6 +8,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import FilterPreview from "@/VitarkComponents/PreviewCode/FilterPreview";
+import { FilterCode } from "@/VitarkComponents/CodeToCopy/Filter";
 
 function customPre({ children }: { children: React.ReactNode }) {
   return (
@@ -56,7 +57,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {`Filter component code will go here`}
+              {FilterCode}
             </SyntaxHighlighter>
             {hasCopied ? (
               <motion.button
