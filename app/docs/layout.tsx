@@ -18,20 +18,16 @@ function layout({
         <div className="flex justify-between w-full overflow-hidden">
           {/* Left Sidebar */}
           <LeftSidebar />
-
           <main className="flex-1 overflow-hidden p-4">{children}</main>
-
           {/* Right Sidebar */}
           <Sidebar
             collapsible="none"
             className="w-64 mx-4 bg-white"
             side="right">
             <SidebarHeader className="h-14">
-              <div className="p-4 text-sm font-medium">On this page</div>
+              {/* <div className="p-4 text-sm font-medium">On this page</div> */}
             </SidebarHeader>
-            <SidebarContent>
-              {/* Right sidebar content goes here */}
-            </SidebarContent>
+            <SidebarContent></SidebarContent>
           </Sidebar>
         </div>
       </div>

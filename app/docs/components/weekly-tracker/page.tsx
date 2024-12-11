@@ -14,7 +14,7 @@ function Page() {
 
   function customPre({ children }: { children: React.ReactNode }) {
     return (
-      <pre className="overflow-x-scroll rounded-lg  bg-slate-950 text-slate-200 w-full p-4">
+      <pre className="overflow-x-scroll no-scrollbar rounded-lg  bg-slate-950 text-slate-200 w-full p-4">
         {children}
       </pre>
     );
