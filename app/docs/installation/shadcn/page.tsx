@@ -1,6 +1,5 @@
 "use client";
 
-import { weeklyTrackerCode } from "@/VitarkComponents/CodeToCopy/weeklyTracker";
 import { Clipboard, ClipboardCheck } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
