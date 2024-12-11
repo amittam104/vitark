@@ -1,11 +1,13 @@
 "use client";
 
-import { weeklyTrackerCode } from "@/VitarkComponents/CodeToCopy/weeklyTracker";
 import { Clipboard, ClipboardCheck } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+const createNextApp = "npx create-next-app@latest";
+const installShadcn = "npx shadcn@latest init";
 
 function Page() {
   const [hasCopiedNextInstall, setHasCopiedNextInstall] = useState(false);
@@ -21,7 +23,7 @@ function Page() {
 
   async function handleCodeCopyNextInstall() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(createNextApp);
       setHasCopiedNextInstall(true);
 
       setTimeout(() => {
@@ -34,7 +36,7 @@ function Page() {
 
   async function handleCodeCopyShadcnInstall() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(installShadcn);
       setHasCopiedShadcnInstall(true);
 
       setTimeout(() => {
@@ -62,7 +64,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {"npx create-next-app@latest"}
+              {createNextApp}
             </SyntaxHighlighter>
             {hasCopiedNextInstall ? (
               <motion.button
@@ -111,7 +113,7 @@ What import alias would you like configured? @/*`}
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {"npx shadcn@latest init"}
+              {installShadcn}
             </SyntaxHighlighter>
             {hasCopiedShadcnInstall ? (
               <motion.button

@@ -1,11 +1,27 @@
 "use client";
 
-import { weeklyTrackerCode } from "@/VitarkComponents/CodeToCopy/weeklyTracker";
 import { Clipboard, ClipboardCheck } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+const installTailwind = `npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p`;
+const configurePath = `/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}`;
+const tailwindDirectives = `@tailwind base;
+@tailwind components;
+@tailwind utilities;`;
 
 function Page() {
   const [hasCopiedTailwindInstall, setHasCopiedTailwindInstall] =
@@ -23,7 +39,7 @@ function Page() {
 
   async function handleCodeCopyTailwindInstall() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(installTailwind);
       setHasCopiedTailwindInstall(true);
 
       setTimeout(() => {
@@ -36,7 +52,7 @@ function Page() {
 
   async function handleCodeCopyConfigPaths() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(configurePath);
       setHasCopiedConfigPaths(true);
 
       setTimeout(() => {
@@ -49,7 +65,7 @@ function Page() {
 
   async function handleCodeCopyAddDirectives() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(tailwindDirectives);
       setHasCopiedAddDirectives(true);
 
       setTimeout(() => {
@@ -77,8 +93,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {`npm install -D tailwindcss postcss autoprefixer 
-npx tailwindcss init -p`}
+              {installTailwind}
             </SyntaxHighlighter>
             {hasCopiedTailwindInstall ? (
               <motion.button
@@ -109,17 +124,7 @@ npx tailwindcss init -p`}
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {`/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}`}
+              {configurePath}
             </SyntaxHighlighter>
             {hasCopiedConfigPaths ? (
               <motion.button
@@ -150,9 +155,7 @@ export default {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {`@tailwind base;
-@tailwind components;
-@tailwind utilities;`}
+              {tailwindDirectives}
             </SyntaxHighlighter>
             {hasCopiedAddDirectives ? (
               <motion.button

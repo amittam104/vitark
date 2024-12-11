@@ -7,6 +7,56 @@ import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
+const EditTSConfig = `{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}`;
+
+const EditTSConfigApp = `{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}`;
+
+const installNode = `# (so you can import "path" without error)
+npm i -D @types/node
+`;
+
+const updateViteConfig = `import path from "path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})`;
+
+const shadcnInstall = "npx shadcn@latest init";
+
 function Page() {
   const [hasCopiedTSConfig, setHasCopiedTSConfig] = useState(false);
   const [hasCopiedTSConfigApp, setHasCopiedTSConfigApp] = useState(false);
@@ -24,7 +74,7 @@ function Page() {
 
   async function handleCodeCopyTSConfig() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(EditTSConfig);
       setHasCopiedTSConfig(true);
 
       setTimeout(() => {
@@ -37,7 +87,7 @@ function Page() {
 
   async function handleCodeCopyTSConfigApp() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(EditTSConfigApp);
       setHasCopiedTSConfigApp(true);
 
       setTimeout(() => {
@@ -50,7 +100,7 @@ function Page() {
 
   async function handleCodeCopyInstallNode() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(installNode);
       setHasCopiedInstallNode(true);
 
       setTimeout(() => {
@@ -63,7 +113,7 @@ function Page() {
 
   async function handleCodeCopyViteConfig() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(updateViteConfig);
       setHasCopiedViteConfig(true);
 
       setTimeout(() => {
@@ -76,7 +126,7 @@ function Page() {
 
   async function handleCodeCopyShadcnInstall() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(shadcnInstall);
       setHasCopiedShadcnInstall(true);
 
       setTimeout(() => {
@@ -104,24 +154,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {`{
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
-}
-`}
+              {EditTSConfig}
             </SyntaxHighlighter>
             {hasCopiedTSConfig ? (
               <motion.button
@@ -150,20 +183,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {`{
-  "compilerOptions": {
-    // ...
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
-    // ...
-  }
-}
-
-`}
+              {EditTSConfigApp}
             </SyntaxHighlighter>
             {hasCopiedTSConfigApp ? (
               <motion.button
@@ -192,48 +212,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {`# (so you can import "path" without error)
-npm i -D @types/node
-`}
-            </SyntaxHighlighter>
-            {hasCopiedShadcnInstall ? (
-              <motion.button
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                // whileTap={{ scale: 0.9, rotate: 3 }}
-                className="absolute top-4 right-5 text-slate-300 rounded-md">
-                <ClipboardCheck size={16} />
-              </motion.button>
-            ) : (
-              <motion.button
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                whileTap={{ scale: 0.4, rotate: 2 }}
-                onClick={handleCodeCopyShadcnInstall}
-                className="absolute top-4 right-5 text-slate-300 rounded-md">
-                <Clipboard size={16} />
-              </motion.button>
-            )}
-          </div>
-          <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
-            <SyntaxHighlighter
-              PreTag={customPre}
-              language="typescript"
-              style={nightOwl}>
-              {`import path from "path"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
-
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-})
-
-`}
+              {installNode}
             </SyntaxHighlighter>
             {hasCopiedInstallNode ? (
               <motion.button
@@ -254,15 +233,12 @@ export default defineConfig({
               </motion.button>
             )}
           </div>
-        </div>
-        <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">Run the CLI</p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {"npx shadcn@latest init"}
+              {updateViteConfig}
             </SyntaxHighlighter>
             {hasCopiedViteConfig ? (
               <motion.button
@@ -278,6 +254,35 @@ export default defineConfig({
                 animate={{ scale: 1 }}
                 whileTap={{ scale: 0.4, rotate: 2 }}
                 onClick={handleCodeCopyViteConfig}
+                className="absolute top-4 right-5 text-slate-300 rounded-md">
+                <Clipboard size={16} />
+              </motion.button>
+            )}
+          </div>
+        </div>
+        <div className="w-full flex flex-col gap-2">
+          <p className="text-sm text-slate-600">Run the CLI</p>
+          <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
+            <SyntaxHighlighter
+              PreTag={customPre}
+              language="typescript"
+              style={nightOwl}>
+              {shadcnInstall}
+            </SyntaxHighlighter>
+            {hasCopiedShadcnInstall ? (
+              <motion.button
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                // whileTap={{ scale: 0.9, rotate: 3 }}
+                className="absolute top-4 right-5 text-slate-300 rounded-md">
+                <ClipboardCheck size={16} />
+              </motion.button>
+            ) : (
+              <motion.button
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                whileTap={{ scale: 0.4, rotate: 2 }}
+                onClick={handleCodeCopyShadcnInstall}
                 className="absolute top-4 right-5 text-slate-300 rounded-md">
                 <Clipboard size={16} />
               </motion.button>

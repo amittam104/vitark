@@ -1,11 +1,12 @@
 "use client";
 
-import { weeklyTrackerCode } from "@/VitarkComponents/CodeToCopy/weeklyTracker";
 import { Clipboard, ClipboardCheck } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+const installVite = "npm create vite@latest";
 
 function Page() {
   const [hasCopiedViteInstall, setHasCopiedViteInstall] = useState(false);
@@ -20,7 +21,7 @@ function Page() {
 
   async function handleCodeCopyViteInstall() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(installVite);
       setHasCopiedViteInstall(true);
 
       setTimeout(() => {
@@ -48,7 +49,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {" npm create vite@latest"}
+              {installVite}
             </SyntaxHighlighter>
             {hasCopiedViteInstall ? (
               <motion.button
