@@ -35,7 +35,7 @@ export default function Home() {
         Library for logical components Not just UI components
       </h1>
       <div className="grid grid-cols-16 grid-rows-12 w-full gap-5">
-        <div className="col-start-1 col-end-5 row-start-1 row-end-8 bg-white border flex flex-col justify-between border-slate-200 dark:bg-slate-950 dark:border-slate-900 rounded-lg px-6 py-6">
+        <div className="col-start-1 col-end-5 row-start-1 row-end-8 bg-white border flex flex-col justify-between border-slate-200 dark:bg-slate-950 dark:border-slate-800 rounded-lg px-6 py-6">
           <p className="text-sm mb-2">
             This is a collection of ready-to-use functional React components
             designed to streamline your development process, built on top of the
@@ -62,7 +62,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="bg-gradient-to-br from-slate-50/20 to-slate-100/60 dark:from-slate-900/90 dark:to-slate-800/60 border relative border-slate-200 overflow-hidden rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 col-start-5 col-end-10 row-start-1 row-end-6">
+        <div className="bg-gradient-to-br from-slate-50/20 to-slate-100/60 dark:from-slate-900/90 dark:to-slate-800/60 border relative border-slate-200 overflow-hidden rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-800 col-start-5 col-end-10 row-start-1 row-end-6">
           <div className="text-sm space-y-4 mb-7 z-10">
             <p>Using this library is as simple as it gets</p>
             <ul className="space-y-2">
@@ -106,7 +106,7 @@ export default function Home() {
             </span>
           </Button>
         </div>
-        <div className="bg-white border border-slate-200 rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 row-start-6 row-end-12 col-start-5 col-end-10">
+        <div className="bg-white border border-slate-200 rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-800 row-start-6 row-end-12 col-start-5 col-end-10">
           <p className="text-sm mb-4">Weekly tracker</p>
           <div className="flex items-center justify-between gap-auto w-full mb-8">
             {weeklyTracker.map((day) => {
@@ -172,7 +172,7 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className="bg-white border text-sm border-slate-200 rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-900 col-start-10 col-span-7  row-start-6 row-end-10">
+        <div className="bg-white border text-sm border-slate-200 rounded-lg px-6 py-6 dark:bg-slate-950 dark:border-slate-800 col-start-10 col-span-7  row-start-6 row-end-10">
           <p className="mb-4">
             Provide your feedback or request new components.
           </p>
