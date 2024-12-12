@@ -30,7 +30,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <Header />
-          <main>{children}</main>
+          <main className="pt-16">{children}</main>
         </ThemeProvider>
       </body>
     </html>
