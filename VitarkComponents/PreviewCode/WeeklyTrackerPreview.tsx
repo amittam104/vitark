@@ -114,55 +114,53 @@ function WeeklyTrackerPreview() {
   );
 
   return (
-    <div className="flex flex-col  items-start justify-center">
-      <div className="border border-slate-200 rounded-lg flex flex-col items-start p-12">
-        <div className="mb-8 w-full">
-          <ul className="flex justify-between gap-6 w-full items-center">
-            {weekDayTracker.map((day: WeekDay) => {
-              return (
-                <div className="flex flex-col items-center gap-3" key={day.id}>
-                  <li
-                    className={`p-4 0 flex items-center border-[2px] rounded-xl justify-center ${
+    <div className="border border-slate-200 rounded-lg flex flex-col items-start p-12">
+      <div className="mb-8 w-full">
+        <ul className="flex justify-between gap-4 w-full items-center px-6">
+          {weekDayTracker.map((day: WeekDay) => {
+            return (
+              <div className="flex flex-col items-center gap-3" key={day.id}>
+                <li
+                  className={`p-4 0 flex items-center border-[2px] rounded-lg justify-center ${
+                    day.status === "yes"
+                      ? "bg-violet-100 border-violet-600"
+                      : "bg-slate-100 border-slate-400"
+                  }`}>
+                  <Diamond
+                    size={30}
+                    className={`${
                       day.status === "yes"
-                        ? "bg-violet-100 border-violet-600"
-                        : "bg-slate-100 border-slate-400"
-                    }`}>
-                    <Diamond
-                      size={30}
-                      className={`${
-                        day.status === "yes"
-                          ? "text-violet-600"
-                          : "text-slate-400"
-                      }`}
-                    />
-                  </li>
-                  <p className="text-xs text-slate-500">{day.dayCode}</p>
-                </div>
-              );
-            })}
-          </ul>
+                        ? "text-violet-600"
+                        : "text-slate-400"
+                    }`}
+                  />
+                </li>
+                <p className="text-xs text-slate-500">{day.dayCode}</p>
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+      <div className="flex items-center gap-8 mb-12 place-self-end">
+        <div className="flex flex-col items-center gap-3">
+          <li className="p-2 flex  items-center border-[2px] rounded-md justify-center bg-slate-100 border-slate-400">
+            <Diamond size={16} className="text-slate-400" />
+          </li>
+          <p className="text-xs text-slate-500">Completed</p>
         </div>
-        <div className="flex items-center gap-8 mb-12 place-self-end">
-          <div className="flex flex-col items-center gap-3">
-            <li className="p-2 flex  items-center border-[2px] rounded-md justify-center bg-slate-100 border-slate-400">
-              <Diamond size={16} className="text-slate-400" />
-            </li>
-            <p className="text-xs text-slate-500">Completed</p>
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <li className="p-2 flex items-center border-[2px] rounded-md justify-center bg-violet-100 border-violet-600">
-              <Diamond size={16} className="text-violet-600" />
-            </li>
-            <p className="text-xs text-slate-500">Completed</p>
-          </div>
+        <div className="flex flex-col items-center gap-3">
+          <li className="p-2 flex items-center border-[2px] rounded-md justify-center bg-violet-100 border-violet-600">
+            <Diamond size={16} className="text-violet-600" />
+          </li>
+          <p className="text-xs text-slate-500">Completed</p>
         </div>
-        <div>
-          <button
-            onClick={updateWeekTracker}
-            className="px-4 py-2 bg-slate-900 rounded-lg shadow-md text-slate-50">
-            Done
-          </button>
-        </div>
+      </div>
+      <div>
+        <button
+          onClick={updateWeekTracker}
+          className="px-4 py-2 bg-slate-900 rounded-lg shadow-md text-slate-50">
+          Done
+        </button>
       </div>
     </div>
   );
