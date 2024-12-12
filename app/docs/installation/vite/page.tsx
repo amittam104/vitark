@@ -13,7 +13,7 @@ function Page() {
 
   function customPre({ children }: { children: React.ReactNode }) {
     return (
-      <pre className="overflow-x-scroll no-scrollbar rounded-lg  bg-slate-950 text-slate-200 w-full p-4">
+      <pre className="overflow-x-scroll no-scrollbar rounded-lg  bg-slate-950 dark:bg-slate-900/80  text-slate-200 w-full p-4">
         {children}
       </pre>
     );
@@ -36,14 +36,16 @@ function Page() {
     <div className="flex flex-col  items-start justify-center">
       <div className="space-y-2 mb-8">
         <h2 className="text-xl font-semibold">Setup Vite</h2>
-        <p className="text-slate-600">
+        <p className="text-slate-600 dark:text-slate-400">
           Create a vite project, install tailwind css and Shadcn library to
           start using Vitark components.
         </p>
       </div>
       <div className="flex flex-col w-full gap-8">
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">Create a vite project</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Create a vite project
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -72,7 +74,7 @@ function Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Follow the prompts to setup the project
           </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
@@ -88,7 +90,7 @@ function Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Now install and setup Tailwind CSS and Shadcn in the vite project.
           </p>
         </div>

@@ -114,7 +114,7 @@ function WeeklyTrackerPreview() {
   );
 
   return (
-    <div className="border border-slate-200 rounded-lg flex flex-col items-start p-12">
+    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-start p-12">
       <div className="mb-8 w-full">
         <ul className="flex justify-between gap-4 w-full items-center px-6">
           {weekDayTracker.map((day: WeekDay) => {
@@ -123,19 +123,21 @@ function WeeklyTrackerPreview() {
                 <li
                   className={`p-4 0 flex items-center border-[2px] rounded-lg justify-center ${
                     day.status === "yes"
-                      ? "bg-violet-100 border-violet-600"
-                      : "bg-slate-100 border-slate-400"
+                      ? "bg-violet-100 border-violet-600  dark:bg-violet-900 dark:border-violet-400"
+                      : "border-slate-400 bg-slate-100 dark:bg-slate-900 dark:border-slate-400"
                   }`}>
                   <Diamond
                     size={30}
                     className={`${
                       day.status === "yes"
-                        ? "text-violet-600"
-                        : "text-slate-400"
+                        ? "text-violet-800 dark:text-violet-400"
+                        : "text-slate-400 dark:text-slate-400"
                     }`}
                   />
                 </li>
-                <p className="text-xs text-slate-500">{day.dayCode}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-300">
+                  {day.dayCode}
+                </p>
               </div>
             );
           })}
@@ -143,22 +145,29 @@ function WeeklyTrackerPreview() {
       </div>
       <div className="flex items-center gap-8 mb-12 place-self-end">
         <div className="flex flex-col items-center gap-3">
-          <li className="p-2 flex  items-center border-[2px] rounded-md justify-center bg-slate-100 border-slate-400">
-            <Diamond size={16} className="text-slate-400" />
+          <li className="p-2 flex  items-center border-[2px] rounded-md justify-center border-slate-400 bg-slate-100 dark:bg-slate-900 dark:border-slate-400">
+            <Diamond size={16} className="text-slate-400 dark:text-slate-400" />
           </li>
-          <p className="text-xs text-slate-500">Completed</p>
+          <p className="text-xs text-slate-500 dark:text-slate-300">
+            Not Completed
+          </p>
         </div>
         <div className="flex flex-col items-center gap-3">
-          <li className="p-2 flex items-center border-[2px] rounded-md justify-center bg-violet-100 border-violet-600">
-            <Diamond size={16} className="text-violet-600" />
+          <li className="p-2 flex items-center border-[2px] rounded-md justify-center bg-violet-100 border-violet-600  dark:bg-violet-900 dark:border-violet-400">
+            <Diamond
+              size={16}
+              className="text-violet-800 dark:text-violet-400 "
+            />
           </li>
-          <p className="text-xs text-slate-500">Completed</p>
+          <p className="text-xs text-slate-500 dark:text-slate-300">
+            Completed
+          </p>
         </div>
       </div>
       <div>
         <button
           onClick={updateWeekTracker}
-          className="px-4 py-2 bg-slate-900 rounded-lg shadow-md text-slate-50">
+          className="px-4 py-2 bg-slate-900 dark:bg-slate-700 rounded-lg shadow-md text-slate-50">
           Done
         </button>
       </div>

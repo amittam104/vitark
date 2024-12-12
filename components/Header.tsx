@@ -16,7 +16,7 @@ function Header() {
       {/* Desktop and Laptop navigation */}
       <div className="hidden lg:flex-1 lg:flex lg:items-center lg:justify-between">
         <nav>
-          <ul className="flex items-center gap-4 text-sm text-neutral-500">
+          <ul className="flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
             <li>
               <Link href="/docs">Docs</Link>
             </li>

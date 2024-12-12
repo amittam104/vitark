@@ -14,7 +14,7 @@ function Page() {
 
   function customPre({ children }: { children: React.ReactNode }) {
     return (
-      <pre className="overflow-x-scroll no-scrollbar rounded-lg  bg-slate-950 text-slate-200 w-full p-4">
+      <pre className="overflow-x-scroll no-scrollbar rounded-lg  bg-slate-950 dark:bg-slate-900/80  text-slate-200 w-full p-4">
         {children}
       </pre>
     );
@@ -37,7 +37,7 @@ function Page() {
     <div className="flex flex-col  items-start justify-center">
       <div className="space-y-2 mb-8">
         <h2 className="text-xl font-semibold">Weekly Tracker</h2>
-        <p className="text-slate-600">
+        <p className="text-slate-600 dark:text-slate-400">
           Simple component to track your weekly progress, use local storage or a
           database
         </p>

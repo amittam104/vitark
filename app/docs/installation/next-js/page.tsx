@@ -15,7 +15,7 @@ function Page() {
 
   function customPre({ children }: { children: React.ReactNode }) {
     return (
-      <pre className="overflow-x-scroll no-scrollbar rounded-lg  bg-slate-950 text-slate-200 w-full p-4">
+      <pre className="overflow-x-scroll no-scrollbar rounded-lg  bg-slate-950 dark:bg-slate-900/80  text-slate-200 w-full p-4">
         {children}
       </pre>
     );
@@ -51,14 +51,16 @@ function Page() {
     <div className="flex flex-col  items-start justify-center">
       <div className="space-y-2 mb-8">
         <h2 className="text-xl font-semibold">Setup Next.js</h2>
-        <p className="text-slate-600">
+        <p className="text-slate-600 dark:text-slate-400">
           Create a next js project, install Shadcn library to start using Vitark
           components.
         </p>
       </div>
       <div className="flex flex-col w-full gap-8">
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">Initiate a next js project</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Initiate a next js project
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -87,7 +89,7 @@ function Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Setup the project with following commands
           </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
@@ -107,7 +109,9 @@ What import alias would you like configured? @/*`}
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">Install Shadcn</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Install Shadcn
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -136,7 +140,9 @@ What import alias would you like configured? @/*`}
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">Configure components.json</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Configure components.json
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -150,8 +156,8 @@ Do you want to use CSS variables for colors? › no / yes
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600">
-            That's it, Start using the components.
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            That&apos;s it, Start using the components.
           </p>
         </div>
       </div>

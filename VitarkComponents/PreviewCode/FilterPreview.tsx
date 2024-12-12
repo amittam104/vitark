@@ -107,7 +107,7 @@ function FilterPreview() {
   }
 
   return (
-    <div className="border border-slate-200 rounded-lg flex flex-col items-center justify-center h-auto p-12">
+    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-center justify-center h-auto p-12">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline">
@@ -141,8 +141,8 @@ function FilterPreview() {
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Table className="border border-slate-200 mt-8">
-        <TableHeader>
+      <Table className="border border-slate-200 dark:border-slate-700 mt-8">
+        <TableHeader className="dark:bg-slate-950">
           <TableRow>
             <TableHead>Id</TableHead>
             <TableHead>Subject</TableHead>
