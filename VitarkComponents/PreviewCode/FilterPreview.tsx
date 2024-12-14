@@ -110,7 +110,7 @@ function FilterPreview() {
     <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-center justify-center h-auto p-12">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">
+          <Button>
             <span>Filter data</span>
             <Filter />
           </Button>

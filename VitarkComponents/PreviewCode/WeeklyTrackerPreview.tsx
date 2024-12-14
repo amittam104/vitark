@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Diamond } from "@phosphor-icons/react/dist/ssr";
 import { isSameWeek } from "date-fns";
 import { useEffect, useState } from "react";
@@ -165,11 +166,9 @@ function WeeklyTrackerPreview() {
         </div>
       </div>
       <div>
-        <button
-          onClick={updateWeekTracker}
-          className="px-4 py-2 bg-slate-900 dark:bg-slate-700 rounded-lg shadow-md text-slate-50">
+        <Button onClick={updateWeekTracker} className="px-4 py-2  shadow-md ">
           Done
-        </button>
+        </Button>
       </div>
     </div>
   );
