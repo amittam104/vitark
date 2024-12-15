@@ -1,4 +1,4 @@
-import { ContributionData } from "./ContributionGraphPreview";
+import { ContributionData } from "../VitarkComponents/PreviewCode/ContributionGraphPreview";
 
 // Helper function to generate a random contribution count based on level
 const getRandomCount = (level: 0 | 1 | 2 | 3 | 4): number => {

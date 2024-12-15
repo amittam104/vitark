@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { weeklyTrackerCode } from "@/VitarkComponents/CodeToCopy/weeklyTracker";
+import { contributionGraphCode } from "@/VitarkComponents/CodeToCopy/ContributionGraph";
 import ContributionGraphPreview from "@/VitarkComponents/PreviewCode/ContributionGraphPreview";
 import { Clipboard, ClipboardCheck } from "lucide-react";
 import { motion } from "motion/react";
@@ -22,7 +22,7 @@ function Page() {
 
   async function handleCodeCopy() {
     try {
-      await navigator.clipboard.writeText(weeklyTrackerCode);
+      await navigator.clipboard.writeText(contributionGraphCode);
       setHasCopied(true);
 
       setTimeout(() => {
@@ -36,10 +36,10 @@ function Page() {
   return (
     <div className="flex flex-col  items-start justify-center">
       <div className="space-y-2 mb-8">
-        <h2 className="text-xl font-semibold">Weekly Tracker</h2>
+        <h2 className="text-xl font-semibold">Github Contribution Graph</h2>
         <p className="text-slate-600 dark:text-slate-400">
-          Simple component to track your weekly progress, use local storage or a
-          database
+          Simple component to track your github contribution, your habit
+          tracking or anything you want.
         </p>
       </div>
       <Tabs defaultValue="preview" className="w-full">
@@ -55,8 +55,9 @@ function Page() {
             <SyntaxHighlighter
               PreTag={customPre}
               language="typescript"
+              wrapLongLines={true}
               style={nightOwl}>
-              {"Contribution Graph Code"}
+              {contributionGraphCode}
             </SyntaxHighlighter>
             {hasCopied ? (
               <motion.button

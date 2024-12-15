@@ -1,5 +1,5 @@
+export const contributionGraphCode = `
 import { useState } from "react";
-import { dummyContributionData } from "../../components/dummyContributionData";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -15,8 +15,6 @@ interface ContributionData {
 }
 
 export type { ContributionData };
-
-const dummyData: Record<string, ContributionData> = dummyContributionData;
 
 const themeColors = {
   default: {
@@ -42,6 +40,17 @@ const months = [
   "Nov",
   "Dec",
 ];
+
+const dummyData: Record<string, ContributionData> = {
+  "2024-01-01": { date: "2024-01-01", level: 1, count: 3 },
+  "2024-01-02": { date: "2024-01-02", level: 4, count: 10 },
+  "2024-01-03": { date: "2024-01-03", level: 0, count: 0 },
+  "2024-01-04": { date: "2024-01-04", level: 2, count: 5 },
+  "2024-01-05": { date: "2024-01-05", level: 3, count: 8 },
+  "2024-01-06": { date: "2024-01-06", level: 4, count: 9 },
+  "2024-01-07": { date: "2024-01-07", level: 1, count: 2 },
+  "2024-01-08": { date: "2024-01-08", level: 3, count: 7 },
+};
 
 function ContributionGraphPreview() {
   const [contributionData, setContributionData] = useState(dummyData);
@@ -69,8 +78,8 @@ function ContributionGraphPreview() {
   // Function to get tooltip content for a date
   const getTooltipContent = (date: string): string => {
     const data = contributionData[date];
-    if (!data) return `No contributions on ${date}`;
-    return `${data.count} contributions on ${date}`;
+    if (!data) return \`No contributions on \${date}\`;
+    return \`\${data.count} contributions on \${date}\`;
   };
 
   // Function to simulate new commits being added
@@ -130,15 +139,15 @@ function ContributionGraphPreview() {
                 week.map((date, dayIndex) => {
                   const level = getContributionLevel(date);
                   return (
-                    <TooltipProvider key={`${date}-${dayIndex}`}>
+                    <TooltipProvider key={\`\${date}-\${dayIndex}\`}>
                       <Tooltip>
                         <TooltipTrigger>
                           <div
-                            className={`w-[10px] h-[10px] rounded-sm`}
+                            className={\`w-[10px] h-[10px] rounded-sm\`}
                             style={{
                               backgroundColor:
                                 themeColors.default[
-                                  `level${level}` as keyof typeof themeColors.default
+                                  \`level\${level}\` as keyof typeof themeColors.default
                                 ],
                             }}
                             // title={getTooltipContent(date)}
@@ -169,7 +178,7 @@ function ContributionGraphPreview() {
               style={{
                 backgroundColor:
                   themeColors.default[
-                    `level${level}` as keyof typeof themeColors.default
+                    \`level\${level}\` as keyof typeof themeColors.default
                   ],
               }}
               className="w-3 h-3 mx-[1px] rounded-sm"></div>
@@ -186,3 +195,5 @@ function ContributionGraphPreview() {
 }
 
 export default ContributionGraphPreview;
+
+`;
