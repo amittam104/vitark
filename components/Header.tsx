@@ -25,7 +25,7 @@ function Header() {
                 <Link href="/docs/components/weekly-tracker">Components</Link>
               </li>
               <li>
-                <Link href="/docs">Feedback</Link>
+                <Link href="/docs/feedback">Feedback</Link>
               </li>
             </ul>
           </nav>
