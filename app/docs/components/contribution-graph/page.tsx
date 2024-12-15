@@ -56,7 +56,7 @@ function Page() {
               PreTag={customPre}
               language="typescript"
               style={nightOwl}>
-              {"weeklyTrackerCode"}
+              {"Contribution Graph Code"}
             </SyntaxHighlighter>
             {hasCopied ? (
               <motion.button
