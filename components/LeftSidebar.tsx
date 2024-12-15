@@ -18,7 +18,9 @@ function LeftSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar collapsible="none" className="w-64  mx-4 bg-white dark:bg-black ">
+    <Sidebar
+      collapsible="none"
+      className="w-64 hidden lg:block mx-4 bg-white dark:bg-black ">
       <SidebarContent className="mt-4 gap-0">
         <SidebarGroup>
           <SidebarGroupLabel className="text-sm text-neutral-800 dark:text-neutral-100 font-semibold">
