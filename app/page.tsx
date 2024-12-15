@@ -54,7 +54,7 @@ export default function Home() {
           </p>
 
           <div className="flex items-center gap-4">
-            <Link href="/components">
+            <Link href="/docs/components/weekly-tracker">
               <Button>Browse Components</Button>
             </Link>
             <Link href="https://github.com/amittam104/vitark" target="_blank">
@@ -176,7 +176,9 @@ export default function Home() {
           <p className="mb-4">
             Provide your feedback or request new components.
           </p>
-          <Button variant="outline">Your Feedback</Button>
+          <Link href="/docs/feedback">
+            <Button variant="outline">Your Feedback</Button>
+          </Link>
         </div>
       </div>
     </div>
