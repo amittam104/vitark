@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { dummyContributionData } from "./dummyContributionData";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface ContributionData {
   date: string;
@@ -124,17 +130,27 @@ function ContributionGraphPreview() {
                 week.map((date, dayIndex) => {
                   const level = getContributionLevel(date);
                   return (
-                    <div
-                      key={`${date}-${dayIndex}`}
-                      className={`w-[10px] h-[10px] rounded-sm`}
-                      style={{
-                        backgroundColor:
-                          themeColors.default[
-                            `level${level}` as keyof typeof themeColors.default
-                          ],
-                      }}
-                      title={getTooltipContent(date)}
-                    />
+                    <TooltipProvider key={`${date}-${dayIndex}`}>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <div
+                            className={`w-[10px] h-[10px] rounded-sm`}
+                            style={{
+                              backgroundColor:
+                                themeColors.default[
+                                  `level${level}` as keyof typeof themeColors.default
+                                ],
+                            }}
+                            // title={getTooltipContent(date)}
+                          />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          {contributionData[date] && (
+                            <p className="text-xs">{getTooltipContent(date)}</p>
+                          )}
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   );
                 })
               )}
