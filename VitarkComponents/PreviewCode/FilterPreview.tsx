@@ -107,7 +107,7 @@ function FilterPreview() {
   }
 
   return (
-    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-center justify-center h-auto p-12">
+    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-center justify-center h-auto p-1 md:p-2 lg:p-12 pt-8 md:pt-6 lg:pt-0">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button>
@@ -142,7 +142,7 @@ function FilterPreview() {
         </DropdownMenuContent>
       </DropdownMenu>
       <Table className="border border-slate-200 dark:border-slate-700 mt-8">
-        <TableHeader className="dark:bg-slate-950">
+        <TableHeader className="dark:bg-slate-950 text-xs sm:text-sm">
           <TableRow>
             <TableHead>Id</TableHead>
             <TableHead>Subject</TableHead>
@@ -151,7 +151,7 @@ function FilterPreview() {
             <TableHead className="text-right">Status</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="text-xs sm:text-sm">
           {FilterData.map((data) => (
             <TableRow key={data.Id}>
               <TableCell className="font-medium">{data.Id}</TableCell>

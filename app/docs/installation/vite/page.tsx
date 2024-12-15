@@ -41,7 +41,7 @@ function Page() {
           start using Vitark components.
         </p>
       </div>
-      <div className="flex flex-col w-full gap-8">
+      <div className="flex flex-col w-screen xl:w-full gap-8">
         <div className="w-full flex flex-col gap-2">
           <p className="text-sm text-slate-600 dark:text-slate-400">
             Create a vite project

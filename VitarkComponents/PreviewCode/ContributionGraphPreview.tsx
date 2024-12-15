@@ -102,9 +102,10 @@ function ContributionGraphPreview() {
   };
 
   return (
-    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-start p-12">
-      <div className="w-full mb-8">
-        <div className="flex">
+    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-start p-4 md:p-8 lg:p-12">
+      <div className="w-auto mb-8 px-12 md:px-0 md:max-w-none max-w-72 md:mx-0 mx-auto">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex">
           <div className="w-8">{/* Empty space for alignment */}</div>
           <div className="flex-1 overflow-x-auto">
             <div className="flex justify-between text-xs text-slate-500 mb-2">
@@ -114,8 +115,26 @@ function ContributionGraphPreview() {
             </div>
           </div>
         </div>
+
+        <div className="flex md:hidden mb-4">
+          {/* Mobile weekdays - horizontal at top */}
+          <div className="w-8">{/* Space for months */}</div>
+          <div className="flex-1">
+            <div className="grid grid-cols-7 gap-[2px]">
+              {["Sun", "", "Tue", "", "Thu", "", "Sat"].map((day) => (
+                <span
+                  key={day}
+                  className="text-[10px] text-slate-500 text-center">
+                  {day}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="flex">
-          <div className="w-8 flex flex-col justify-between pr-2">
+          {/* Desktop weekdays - vertical */}
+          <div className="hidden md:flex w-8 flex-col justify-between pr-2">
             {["Sun", "", "Tue", "", "Thu", "", "Sat"].map((day, index) => (
               <span
                 key={index}
@@ -124,8 +143,23 @@ function ContributionGraphPreview() {
               </span>
             ))}
           </div>
+
+          {/* Mobile months - vertical */}
+          <div className="flex md:hidden w-8">
+            <div className="flex flex-col justify-between text-[10px] text-slate-500">
+              {months.map(
+                (month, index) =>
+                  index % 2 === 0 && (
+                    <span key={month} className="h-[10px] leading-[10px]">
+                      {month}
+                    </span>
+                  )
+              )}
+            </div>
+          </div>
+
           <div className="flex-1">
-            <div className="grid grid-rows-7 grid-flow-col gap-[2px]">
+            <div className="grid md:grid-rows-7 md:grid-flow-col grid-cols-7 grid-flow-row gap-[2px]">
               {datesFromYear.map((week) =>
                 week.map((date, dayIndex) => {
                   const level = getContributionLevel(date);
@@ -134,14 +168,13 @@ function ContributionGraphPreview() {
                       <Tooltip>
                         <TooltipTrigger>
                           <div
-                            className={`w-[10px] h-[10px] rounded-sm`}
+                            className="w-[10px] h-[10px] rounded-sm"
                             style={{
                               backgroundColor:
                                 themeColors.default[
                                   `level${level}` as keyof typeof themeColors.default
                                 ],
                             }}
-                            // title={getTooltipContent(date)}
                           />
                         </TooltipTrigger>
                         <TooltipContent>
@@ -178,7 +211,7 @@ function ContributionGraphPreview() {
         <span className="text-xs ml-2">More</span>
       </div>
 
-      <div>
+      <div className="mt-4">
         <Button onClick={() => addNewCommit()}>Add Commit</Button>
       </div>
     </div>

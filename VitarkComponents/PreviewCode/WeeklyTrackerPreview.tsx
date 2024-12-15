@@ -115,9 +115,9 @@ function WeeklyTrackerPreview() {
   );
 
   return (
-    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-start p-12">
+    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-start p-12  w-full">
       <div className="mb-8 w-full">
-        <ul className="flex justify-between gap-4 w-full items-center px-6">
+        <ul className="flex flex-wrap justify-between gap-4 w-full items-center px-6">
           {weekDayTracker.map((day: WeekDay) => {
             return (
               <div className="flex flex-col items-center gap-3" key={day.id}>

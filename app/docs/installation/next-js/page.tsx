@@ -48,7 +48,7 @@ function Page() {
   }
 
   return (
-    <div className="flex flex-col  items-start justify-center">
+    <div className="flex flex-col items-start justify-center">
       <div className="space-y-2 mb-8">
         <h2 className="text-xl font-semibold">Setup Next.js</h2>
         <p className="text-slate-600 dark:text-slate-400">
@@ -56,7 +56,7 @@ function Page() {
           components.
         </p>
       </div>
-      <div className="flex flex-col w-full gap-8">
+      <div className="flex flex-col w-screen xl:w-full gap-8">
         <div className="w-full flex flex-col gap-2">
           <p className="text-sm text-slate-600 dark:text-slate-400">
             Initiate a next js project

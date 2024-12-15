@@ -145,9 +145,11 @@ function Page() {
           Vitark components.
         </p>
       </div>
-      <div className="flex flex-col w-full gap-8">
+      <div className="flex flex-col w-screen xl:w-full gap-8">
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600 dark:text-slate-400">Edit tsconfig.json file</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Edit tsconfig.json file
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -176,7 +178,9 @@ function Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600 dark:text-slate-400">Edit tsconfig.app.json file</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Edit tsconfig.app.json file
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -205,7 +209,9 @@ function Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600 dark:text-slate-400">Update vite.config.ts</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Update vite.config.ts
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -260,7 +266,9 @@ function Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600 dark:text-slate-400">Run the CLI</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Run the CLI
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}
@@ -289,7 +297,9 @@ function Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-          <p className="text-sm text-slate-600 dark:text-slate-400">Configure components.json</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Configure components.json
+          </p>
           <div className="rounded-lg relative flex flex-col items-start text-base h-auto w-full">
             <SyntaxHighlighter
               PreTag={customPre}

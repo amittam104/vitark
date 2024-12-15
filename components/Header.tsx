@@ -23,7 +23,7 @@ function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="max-w-screen flex items-center justify-between gap-8 lg:justify-start h-14 backdrop-blur-md z-10 fixed top-0 w-full">
+    <header className="max-w-screen flex items-center justify-between gap-8 lg:justify-start h-14 backdrop-blur-md z-10 fixed top-0 w-screen xl:w-full">
       <div className="w-full flex items-center justify-between mx-2 md:mx-4 lg:mx-8 gap-8">
         <Link href="/" className="flex items-center gap-2">
           <Diamond size={20} />
@@ -105,7 +105,7 @@ function Header() {
               </div>
               <Sidebar
                 collapsible="none"
-                className="w-64 bg-white dark:bg-black mt-8">
+                className="w-auto bg-white dark:bg-black mt-8">
                 <SidebarContent className="mt-4 gap-0">
                   <SidebarGroup className="p-0">
                     <SidebarGroupLabel className="text-sm text-neutral-800 dark:text-neutral-100 font-semibold">

@@ -34,23 +34,23 @@ function Page() {
   }
 
   return (
-    <div className="flex flex-col  items-start justify-center">
-      <div className="space-y-2 mb-8">
+    <div className="flex flex-col items-start justify-center">
+      <div className="space-y-2 mb-8 px-2">
         <h2 className="text-xl font-semibold">Github Contribution Graph</h2>
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base">
           Simple component to track your github contribution, your habit
           tracking or anything you want.
         </p>
       </div>
-      <Tabs defaultValue="preview" className="w-full">
+      <Tabs defaultValue="preview" className="w-screen xl:w-full">
         <TabsList>
           <TabsTrigger value="preview">Preview</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
-        <TabsContent value="preview">
+        <TabsContent value="preview" className="px-2">
           <ContributionGraphPreview />
         </TabsContent>
-        <TabsContent value="code">
+        <TabsContent value="code" className="px-2 xl:px-0">
           <div className="rounded-lg relative flex flex-col items-start text-base h-[35rem] ">
             <SyntaxHighlighter
               PreTag={customPre}
