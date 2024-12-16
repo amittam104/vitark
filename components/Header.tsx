@@ -237,18 +237,6 @@ function Header() {
                             </Link>
                           </SidebarMenuButton>
                         </SidebarMenuItem>
-                        {/* <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link
-                    className={`${
-                      pathname === "/docs/components/sort" && "text-violet-600"
-                    }`}
-                    href="/docs/components/sort">
-                    <SortDesc className="mr-2 h-4 w-4" />
-                    <span>Sort</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem> */}
                       </SidebarMenu>
                     </SidebarGroupContent>
                   </SidebarGroup>
