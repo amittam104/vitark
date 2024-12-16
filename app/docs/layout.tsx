@@ -18,7 +18,7 @@ function layout({
         <div className="flex justify-between w-full">
           {/* Left Sidebar */}
           <LeftSidebar />
-          <main className="flex-1 dark:text-slate-200">{children}</main>
+          <main className="flex-1 dark:text-slate-200 mt-6">{children}</main>
           {/* Right Sidebar */}
           <Sidebar
             collapsible="none"
