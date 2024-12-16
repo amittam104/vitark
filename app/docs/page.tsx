@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div>
+    <div className="px-4">
       <h1 className="text-xl text-slate-950 dark:text-slate-50 mb-8 mt-4">
         Introduction
       </h1>

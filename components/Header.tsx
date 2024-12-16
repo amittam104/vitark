@@ -71,20 +71,6 @@ function Header() {
             <SheetContent side="left">
               <div className="absolute flex items-center gap-8 left-4 top-2">
                 <ThemeToggle />
-                <div className="flex items-center gap-8">
-                  <Link
-                    href="https://github.com/amittam104/vitark"
-                    target="_blank">
-                    <Button variant="ghost" size="icon">
-                      <GithubLogo size={20} weight="light" />
-                    </Button>
-                  </Link>
-                  <Link href="https://X.com/amittambulkar" target="_blank">
-                    <Button variant="ghost" size="icon">
-                      <XLogo size={20} weight="light" />
-                    </Button>
-                  </Link>
-                </div>
               </div>
               <div className="flex flex-col items-start gap-8 mt-14 px-2">
                 <nav>
@@ -102,6 +88,20 @@ function Header() {
                     </li>
                   </ul>
                 </nav>
+                <div className="flex items-center gap-8">
+                  <Link
+                    href="https://github.com/amittam104/vitark"
+                    target="_blank">
+                    <Button variant="ghost" size="icon">
+                      <GithubLogo size={20} weight="light" />
+                    </Button>
+                  </Link>
+                  <Link href="https://X.com/amittambulkar" target="_blank">
+                    <Button variant="ghost" size="icon">
+                      <XLogo size={20} weight="light" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
               <Sidebar
                 collapsible="none"

@@ -34,14 +34,14 @@ function Page() {
 
   return (
     <div className="flex flex-col  items-start justify-center">
-      <div className="space-y-2 mb-8">
+      <div className="space-y-2 mb-8 px-4">
         <h2 className="text-xl font-semibold">Setup Vite</h2>
         <p className="text-slate-600 dark:text-slate-400">
           Create a vite project, install tailwind css and Shadcn library to
           start using Vitark components.
         </p>
       </div>
-      <div className="flex flex-col w-screen xl:w-full gap-8">
+      <div className="flex flex-col w-screen xl:w-full gap-8 px-4">
         <div className="w-full flex flex-col gap-2">
           <p className="text-sm text-slate-600 dark:text-slate-400">
             Create a vite project
