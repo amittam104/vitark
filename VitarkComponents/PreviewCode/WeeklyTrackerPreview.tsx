@@ -13,40 +13,37 @@ type WeekDay = {
   date: Date | null;
 };
 
-let initialWeekTracker: WeekDay[];
-
-if (typeof window !== undefined && window.localStorage) {
-  initialWeekTracker = [
-    { id: 0, day: "Sunday", dayCode: "sun", status: "no", date: null },
-    { id: 1, day: "Monday", dayCode: "mon", status: "no", date: null },
-    { id: 2, day: "Tuesday", dayCode: "tue", status: "no", date: null },
-    { id: 3, day: "Wednesday", dayCode: "wed", status: "no", date: null },
-    { id: 4, day: "Thursday", dayCode: "thu", status: "no", date: null },
-    { id: 5, day: "Friday", dayCode: "fri", status: "no", date: null },
-    { id: 6, day: "Saturday", dayCode: "sat", status: "no", date: null },
-  ];
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const storedData: any | null = localStorage.getItem("weekTracker");
-
-  if (!storedData) {
-    localStorage.setItem("weekTracker", JSON.stringify(initialWeekTracker));
-    initialWeekTracker = [
-      { id: 0, day: "Sunday", dayCode: "sun", status: "no", date: null },
-      { id: 1, day: "Monday", dayCode: "mon", status: "no", date: null },
-      { id: 2, day: "Tuesday", dayCode: "tue", status: "no", date: null },
-      { id: 3, day: "Wednesday", dayCode: "wed", status: "no", date: null },
-      { id: 4, day: "Thursday", dayCode: "thu", status: "no", date: null },
-      { id: 5, day: "Friday", dayCode: "fri", status: "no", date: null },
-      { id: 6, day: "Saturday", dayCode: "sat", status: "no", date: null },
-    ];
-  }
-
-  initialWeekTracker = JSON.parse(storedData);
-}
+const defaultWeekTracker: WeekDay[] = [
+  { id: 0, day: "Sunday", dayCode: "sun", status: "no", date: null },
+  { id: 1, day: "Monday", dayCode: "mon", status: "no", date: null },
+  { id: 2, day: "Tuesday", dayCode: "tue", status: "no", date: null },
+  { id: 3, day: "Wednesday", dayCode: "wed", status: "no", date: null },
+  { id: 4, day: "Thursday", dayCode: "thu", status: "no", date: null },
+  { id: 5, day: "Friday", dayCode: "fri", status: "no", date: null },
+  { id: 6, day: "Saturday", dayCode: "sat", status: "no", date: null },
+];
 
 function WeeklyTrackerPreview() {
-  const [weekDayTracker, setWeekDayTracker] = useState(initialWeekTracker);
+  const [weekDayTracker, setWeekDayTracker] = useState<WeekDay[]>(() => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const storedData: any | null = localStorage.getItem("weekTracker");
+
+      if (storedData) {
+        try {
+          return JSON.parse(storedData);
+        } catch (error) {
+          console.error("Error parsing stored week tracker data", error);
+        }
+      }
+
+      // If no stored data, set default and store
+      localStorage.setItem("weekTracker", JSON.stringify(defaultWeekTracker));
+      return defaultWeekTracker;
+    }
+
+    return defaultWeekTracker;
+  });
 
   function updateWeekTracker() {
     const todayDay = new Date().getDay();
@@ -56,49 +53,24 @@ function WeeklyTrackerPreview() {
       (day) => day.date !== null
     );
 
+    let updatedWeekTracker = [...weekDayTracker];
+
     if (completedDaysFromWeek.length > 0) {
       const isItSameWeek = isSameWeek(
         completedDaysFromWeek[completedDaysFromWeek.length - 1].date!,
-        todayDate.toString()
+        todayDate
       );
 
-      if (!isItSameWeek)
-        initialWeekTracker = [
-          { id: 0, day: "Sunday", dayCode: "sun", status: "no", date: null },
-          { id: 1, day: "Monday", dayCode: "mon", status: "no", date: null },
-          { id: 2, day: "Tuesday", dayCode: "tue", status: "no", date: null },
-          {
-            id: 3,
-            day: "Wednesday",
-            dayCode: "wed",
-            status: "no",
-            date: null,
-          },
-          {
-            id: 4,
-            day: "Thursday",
-            dayCode: "thu",
-            status: "no",
-            date: null,
-          },
-          { id: 5, day: "Friday", dayCode: "fri", status: "no", date: null },
-          {
-            id: 6,
-            day: "Saturday",
-            dayCode: "sat",
-            status: "no",
-            date: null,
-          },
-        ];
-      setWeekDayTracker(initialWeekTracker);
+      if (!isItSameWeek) updatedWeekTracker = defaultWeekTracker;
     }
 
-    const updatedWeekTracker = weekDayTracker.map((day: WeekDay) => {
+    updatedWeekTracker = updatedWeekTracker.map((day: WeekDay) => {
       if (day.id === todayDay) {
-        day.status = "yes";
-        day.date = todayDate;
-
-        return day;
+        return {
+          ...day,
+          status: "yes",
+          date: todayDate,
+        };
       }
 
       return day;
@@ -118,7 +90,7 @@ function WeeklyTrackerPreview() {
     <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-start p-12  w-full">
       <div className="mb-8 w-full">
         <ul className="flex flex-wrap justify-between gap-4 w-full items-center px-6">
-          {weekDayTracker.map((day: WeekDay) => {
+          {weekDayTracker?.map((day: WeekDay) => {
             return (
               <div className="flex flex-col items-center gap-3" key={day.id}>
                 <li
