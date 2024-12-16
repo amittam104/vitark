@@ -107,7 +107,7 @@ function FilterPreview() {
   }
 
   return (
-    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-center justify-center h-auto p-1 md:p-2 lg:p-12 pt-8 md:pt-6 lg:pt-0">
+    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-center justify-center h-auto p-1 md:p-2 lg:p-12 pt-8 md:pt-6 lg:pt-8">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button>
