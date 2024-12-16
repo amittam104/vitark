@@ -23,7 +23,7 @@ function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="max-w-screen flex items-center justify-between gap-8 lg:justify-start h-14 backdrop-blur-md z-10 fixed top-0 w-screen xl:w-full">
+    <header className="max-w-[88rem] flex items-center justify-between gap-8 lg:justify-start h-14 backdrop-blur-md z-10 fixed top-0 left-1/2 -translate-x-1/2 w-screen xl:w-full">
       <div className="w-full flex items-center justify-between mx-2 md:mx-4 lg:mx-8 gap-8">
         <Link href="/" className="flex items-center gap-2">
           <Diamond size={20} />
