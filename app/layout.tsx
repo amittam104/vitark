@@ -33,7 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange>
           <SidebarProvider>
             <Header />
-            <main className="pt-16">{children}</main>
+            <main className="pt-16 w-screen">{children}</main>
             <Toaster />
           </SidebarProvider>
         </ThemeProvider>
