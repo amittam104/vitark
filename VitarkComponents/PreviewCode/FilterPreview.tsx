@@ -26,56 +26,49 @@ const filterDummyData = [
     Id: "E001",
     subject: "Invoice INV001 Payment Confirmation",
     from: "billing@company.com",
-    content:
-      "Dear Customer,\n\nThank you for your payment of $250.00 for Invoice INV001. Your transaction has been successfully processed.\n\nBest regards,\nCompany Billing Team",
+    content: "Payment processed for INV001",
     status: "read",
   },
   {
     Id: "E002",
     subject: "Reminder: Invoice INV002 Due Soon",
     from: "reminders@company.com",
-    content:
-      "Hello,\n\nThis is a friendly reminder that Invoice INV002 for $150.00 is due soon. Please make your payment to avoid any late fees.\n\nThank you!",
+    content: "INV002 payment due soon",
     status: "unread",
   },
   {
     Id: "E003",
     subject: "Invoice INV003 Unpaid Notification",
     from: "billing@company.com",
-    content:
-      "Dear Customer,\n\nWe noticed that Invoice INV003 remains unpaid. The total amount due is $350.00. Please take action at your earliest convenience.\n\nRegards,\nCustomer Support",
+    content: "INV003 payment needed now",
     status: "unread",
   },
   {
     Id: "E004",
     subject: "Invoice INV004 Payment Confirmation",
     from: "billing@company.com",
-    content:
-      "Dear Customer,\n\nYour payment of $450.00 for Invoice INV004 has been received successfully. Thank you for your prompt payment!\n\nSincerely,\nBilling Department",
+    content: "Payment received for INV004",
     status: "read",
   },
   {
     Id: "E005",
     subject: "Invoice INV005 Payment Received",
     from: "notifications@company.com",
-    content:
-      "Hi,\n\nWe have successfully processed your payment of $550.00 for Invoice INV005. Thank you!\n\nBest,\nNotifications Team",
+    content: "Payment confirmed for INV005",
     status: "read",
   },
   {
     Id: "E006",
     subject: "Action Required: Invoice INV006 Pending Payment",
     from: "alerts@company.com",
-    content:
-      "Hello,\n\nYour Invoice INV006 totaling $200.00 is currently pending payment. Please ensure that it is settled promptly to avoid service interruptions.\n\nThank you!",
+    content: "INV006 requires immediate payment",
     status: "unread",
   },
   {
     Id: "E007",
     subject: "Invoice INV007 Unpaid Alert",
     from: "notifications@company.com",
-    content:
-      "Dear Customer,\n\nThis is a notice regarding Invoice INV007, which remains unpaid with a total amount of $300.00. We urge you to make the payment as soon as possible.\n\nRegards,\nCollections Team",
+    content: "Please pay INV007 now",
     status: "deleted",
   },
 ];

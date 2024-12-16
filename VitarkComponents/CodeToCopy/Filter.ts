@@ -1,4 +1,5 @@
-export const FilterCode = `"use client";
+export const FilterCode = `
+"use client";
 
 import {
   DropdownMenu,
@@ -26,56 +27,49 @@ const filterDummyData = [
     Id: "E001",
     subject: "Invoice INV001 Payment Confirmation",
     from: "billing@company.com",
-    content:
-      "Dear Customer,Thank you for your payment of $250.00 for Invoice INV001. Your transaction has been successfully processed. Best regards, Company Billing Team",
+    content: "Payment processed for INV001",
     status: "read",
   },
   {
     Id: "E002",
     subject: "Reminder: Invoice INV002 Due Soon",
     from: "reminders@company.com",
-    content:
-      "Hello, This is a friendly reminder that Invoice INV002 for $150.00 is due soon. Please make your payment to avoid any late fees. Thank you!",
+    content: "INV002 payment due soon",
     status: "unread",
   },
   {
     Id: "E003",
     subject: "Invoice INV003 Unpaid Notification",
     from: "billing@company.com",
-    content:
-      "Dear Customer, We noticed that Invoice INV003 remains unpaid. The total amount due is $350.00. Please take action at your earliest convenience. Regards, Customer Support",
+    content: "INV003 payment needed now",
     status: "unread",
   },
   {
     Id: "E004",
     subject: "Invoice INV004 Payment Confirmation",
     from: "billing@company.com",
-    content:
-      "Dear Customer, Your payment of $450.00 for Invoice INV004 has been received successfully. Thank you for your prompt payment! Sincerely, Billing Department",
+    content: "Payment received for INV004",
     status: "read",
   },
   {
     Id: "E005",
     subject: "Invoice INV005 Payment Received",
     from: "notifications@company.com",
-    content:
-      "Hi, We have successfully processed your payment of $550.00 for Invoice INV005. Thank you! Best, Notifications Team",
+    content: "Payment confirmed for INV005",
     status: "read",
   },
   {
     Id: "E006",
     subject: "Action Required: Invoice INV006 Pending Payment",
     from: "alerts@company.com",
-    content:
-      "Hello, Your Invoice INV006 totaling $200.00 is currently pending payment. Please ensure that it is settled promptly to avoid service interruptions. Thank you!",
+    content: "INV006 requires immediate payment",
     status: "unread",
   },
   {
     Id: "E007",
     subject: "Invoice INV007 Unpaid Alert",
     from: "notifications@company.com",
-    content:
-      "Dear Customer, This is a notice regarding Invoice INV007, which remains unpaid with a total amount of $300.00. We urge you to make the payment as soon as possible. Regards, Collections Team",
+    content: "Please pay INV007 now",
     status: "deleted",
   },
 ];
@@ -107,10 +101,10 @@ function FilterPreview() {
   }
 
   return (
-    <div className="border border-slate-200 rounded-lg flex flex-col items-center justify-center h-auto p-12">
+    <div className="border border-slate-200 dark:border-slate-700 rounded-lg flex flex-col items-center justify-center h-auto p-1 md:p-2 lg:p-12 pt-8 md:pt-6 lg:pt-8">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">
+          <Button>
             <span>Filter data</span>
             <Filter />
           </Button>
@@ -141,8 +135,8 @@ function FilterPreview() {
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Table className="border border-slate-200 mt-8">
-        <TableHeader>
+      <Table className="border border-slate-200 dark:border-slate-700 mt-8">
+        <TableHeader className="dark:bg-slate-950 text-xs sm:text-sm">
           <TableRow>
             <TableHead>Id</TableHead>
             <TableHead>Subject</TableHead>
@@ -151,7 +145,7 @@ function FilterPreview() {
             <TableHead className="text-right">Status</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="text-xs sm:text-sm">
           {FilterData.map((data) => (
             <TableRow key={data.Id}>
               <TableCell className="font-medium">{data.Id}</TableCell>
@@ -167,5 +161,4 @@ function FilterPreview() {
   );
 }
 
-export default FilterPreview;
-`;
+export default FilterPreview;`;

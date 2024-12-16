@@ -23,7 +23,7 @@ function Page() {
 
   async function handleCodeCopy() {
     try {
-      await navigator.clipboard.writeText("Filter components code");
+      await navigator.clipboard.writeText(FilterCode);
       setHasCopied(true);
 
       setTimeout(() => {
