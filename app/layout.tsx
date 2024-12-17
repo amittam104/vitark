@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { CSPostHogProvider } from "@/lib/providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,20 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} antialiased text-slate-800 dark:text-slate-200 dark:bg-black`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange>
-          <SidebarProvider>
-            <Header />
-            <main className="pt-16 w-screen">{children}</main>
-            <Toaster />
-          </SidebarProvider>
-        </ThemeProvider>
-      </body>
+      <CSPostHogProvider>
+        <body
+          className={`${inter.className} antialiased text-slate-800 dark:text-slate-200 dark:bg-black`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+            <SidebarProvider>
+              <Header />
+              <main className="pt-16 w-screen">{children}</main>
+              <Toaster />
+            </SidebarProvider>
+          </ThemeProvider>
+        </body>
+      </CSPostHogProvider>
     </html>
   );
 }
