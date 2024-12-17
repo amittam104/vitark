@@ -53,17 +53,23 @@ function WeeklyTrackerPreview() {
       (day) => day.date !== null
     );
 
+    // Create a new tracker array that we'll modify
     let updatedWeekTracker = [...weekDayTracker];
 
+    // Check if we need to reset for new week
     if (completedDaysFromWeek.length > 0) {
       const isItSameWeek = isSameWeek(
         completedDaysFromWeek[completedDaysFromWeek.length - 1].date!,
         todayDate
       );
 
-      if (!isItSameWeek) updatedWeekTracker = defaultWeekTracker;
+      // If new week, start fresh with default tracker
+      if (!isItSameWeek) {
+        updatedWeekTracker = [...defaultWeekTracker];
+      }
     }
 
+    // Update today's status in the appropriate tracker
     updatedWeekTracker = updatedWeekTracker.map((day: WeekDay) => {
       if (day.id === todayDay) {
         return {
@@ -72,11 +78,12 @@ function WeeklyTrackerPreview() {
           date: todayDate,
         };
       }
-
       return day;
     });
 
+    // Update state and localStorage in one go
     setWeekDayTracker(updatedWeekTracker);
+    localStorage.setItem("weekTracker", JSON.stringify(updatedWeekTracker));
   }
 
   useEffect(
@@ -91,6 +98,7 @@ function WeeklyTrackerPreview() {
       <div className="mb-8 w-full">
         <ul className="flex flex-wrap justify-between gap-4 w-full items-center px-6">
           {weekDayTracker?.map((day: WeekDay) => {
+            console.log(day.status === "yes" && day);
             return (
               <div className="flex flex-col items-center gap-3" key={day.id}>
                 <li
